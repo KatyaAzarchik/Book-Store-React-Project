@@ -1,0 +1,24 @@
+.book-image {
+  width: 100%;
+
+  background-color: rgba(244, 238, 253, 1);
+  img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+    overflow: hidden;
+    margin: auto;
+  }
+}
+.book-tittle {
+  font-size: 1.5rem;
+  color: rgba(49, 48, 55, 1);
+  padding: 20px 0 30px 0;
+}
+.book-subtitle {
+  font-size: 1rem;
+  font-weight: 400;
+  color: rgba(168, 168, 168, 1);
+  text-transform: lowercase;
+  padding: 0 0 40px 0;
+}

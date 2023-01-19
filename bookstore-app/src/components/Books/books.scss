@@ -1,0 +1,23 @@
+.book-list-wpapp {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 48px -15px 0 -15px;
+}
+.book-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 352px;
+  height: 454px;
+  margin: 0 15px 252px 15px;
+  cursor: pointer;
+}
+.newReleasesBooks-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: rgba(49, 48, 55, 1);
+  margin: 0 0 0 15px;
+}
