@@ -14,6 +14,8 @@ export interface IBooks {
   price: string;
   image: string;
   url?: string;
+  books?: [];
+  count?: number;
 }
 export interface IBook extends IBooks {
   authors: string;
@@ -33,14 +35,20 @@ export interface IFavoriteBook {
   isbn13: number;
   isFavorite: false;
 }
+export interface IFavoriteList {
+  favoritesTitle: string;
+}
 export interface IInitialApiState {
-  favorites: IFavoriteBook[];
+  favorites: IBook[];
   loading: null | boolean;
-  book: IBook | undefined;
+  book: any;
   books: IBooks[];
   error: null | string;
+  count: number;
 }
-
+export interface IInitialFavoritesState {
+  favorites: IBook[];
+}
 export interface IBooksTitle {
   title: string;
 }
@@ -64,4 +72,13 @@ export interface IModal {
   modalImg: string;
   active: boolean;
   setModalActive: boolean | any;
+}
+export interface IPaginaton {
+  countOfPages: number;
+  currentPage: number;
+  setCurrentPage: (pageNumber: number) => void;
+}
+export interface IPostsResponse {
+  results: IBooks[];
+  count: number;
 }

@@ -21,7 +21,13 @@ export const Book = (book: IBook) => {
       <div className="book-page-wrapp">
         <div className="book-page-img">
           <img src={book?.image} alt={book?.title} />
-          <FavoriteBookIcon isbn13={Number(book.isbn13)} isFavorite={false} />
+          <FavoriteBookIcon
+            isbn13={Number(book.isbn13)}
+            title={book.title}
+            subtitle={book.subtitle}
+            price={book.price}
+            image={book.image}
+          />
         </div>
         <div className="book-page-info">
           <div className="book-price">{book.price}</div>

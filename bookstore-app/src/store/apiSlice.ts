@@ -1,8 +1,8 @@
-import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
-import { IInitialApiState } from "../interfaces";
-import { getBooks } from "./booksThunk";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { act } from "react-dom/test-utils";
+import { IBook, IInitialApiState } from "../interfaces";
+import { getBooks, IBooksResponse } from "./booksThunk";
 import { getBook } from "./bookThunk";
-import { IBook } from "../interfaces";
 
 const initialState: IInitialApiState = {
   loading: false,
@@ -10,6 +10,7 @@ const initialState: IInitialApiState = {
   book: undefined,
   error: null,
   favorites: [],
+  count: 0,
 };
 
 export const booksSlice = createSlice({
@@ -17,31 +18,27 @@ export const booksSlice = createSlice({
   initialState: initialState,
   reducers: {
     addBookToFavorites(state: IInitialApiState, action: PayloadAction<any>) {
-      const bookIsbn13 = action.payload;
-      state.favorites = state.favorites.includes(bookIsbn13)
-        ? state.favorites.filter((isbn13) => isbn13 !== bookIsbn13)
-        : [...state.favorites, bookIsbn13];
-
-      console.log(state.favorites);
-      console.log(bookIsbn13);
+      state.favorites.push(state.book);
     },
-    // removeBookFromFavorites(
-    //   state: IInitialApiState,
-    //   action: PayloadAction<any>
-    // ) {
-    //   const bookIsbn13 = action.payload;
-    //   state.favorites = state.favorites.includes(bookIsbn13)
-    //     ? state.favorites.filter((isbn13) => isbn13 !== bookIsbn13)
-    //     : [...state.favorites, bookIsbn13];
-    // },
+    removeBookToFavorites(state: IInitialApiState, action: PayloadAction<any>) {
+      const removeBookToFavorites = state.favorites.find((item) =>
+        state.favorites.pop()
+      );
+    },
   },
   extraReducers: {
     [getBooks.pending.type]: (state) => {
       state.loading = true;
     },
-    [getBooks.fulfilled.type]: (state, action) => {
+    [getBooks.fulfilled.type]: (
+      state,
+      action: PayloadAction<IBooksResponse | any>
+    ) => {
       state.loading = false;
       state.books = action.payload;
+      state.count = action.payload.count;
+      console.log(`action.payload.results`);
+      console.log(action.payload);
     },
     [getBooks.rejected.type]: (state, action: any) => {
       state.loading = false;
@@ -60,5 +57,6 @@ export const booksSlice = createSlice({
     },
   },
 });
-export const { addBookToFavorites } = booksSlice.actions;
+export const { addBookToFavorites, removeBookToFavorites } = booksSlice.actions;
+
 export default booksSlice.reducer;

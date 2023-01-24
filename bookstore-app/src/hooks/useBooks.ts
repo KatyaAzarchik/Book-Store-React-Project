@@ -1,17 +1,32 @@
-import { useCallback, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { addBookToFavorites } from "../store/apiSlice";
-import { getBook } from "../store/bookThunk";
-import { useAppDispatch } from "../store/store";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { getBooks } from "../store/booksThunk";
+import { booksCountSelector, booksSelector } from "../store/selectors";
+import { useAppDispatch, useAppSelector } from "../store/store";
 
-export const useBooks = () => {
+export const useBooks = (limit: number, offset: number) => {
+  const { books, count } = useAppSelector((state) => state.booksReducer);
+
   const dispatch = useAppDispatch();
-
-  const handleFavoriveBook = useCallback(
-    (isbn13: number) => {
-      return dispatch(addBookToFavorites(isbn13));
-    },
-    [dispatch]
-  );
-  return { handleFavoriveBook };
+  useEffect(() => {
+    dispatch(getBooks(`limit=${limit}&offset=${offset}`));
+  }, [dispatch]);
+  console.log(books);
+  return {
+    books,
+    count,
+  };
 };
+
+// export const useBooks = () => {
+//   const books = useAppSelector(booksSelector);
+//   const limitPerPage = 10;
+//   const dispatch = useAppDispatch();
+//   useEffect(() => {
+//     dispatch(getBooks());
+//   }, [dispatch]);
+
+//   return {
+//     books,
+//   };
+// };

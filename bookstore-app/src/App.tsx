@@ -14,6 +14,10 @@ function App() {
           <Route path={`/`} element={<NewReleasesBooks />}></Route>
 
           <Route path={`books/:isbn13`} element={<Bookpage />}></Route>
+          <Route
+            path={`favorites`}
+            element={<FavoritesPage favoritesTitle={"Favorites"} />}
+          ></Route>
         </Routes>
       </BrowserRouter>
     </>
