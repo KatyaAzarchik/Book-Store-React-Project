@@ -44,7 +44,7 @@ export interface IInitialApiState {
   book: any;
   books: IBooks[];
   error: null | string;
-  count: number;
+  total: number;
 }
 export interface IInitialFavoritesState {
   favorites: IBook[];

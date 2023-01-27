@@ -1,6 +1,5 @@
 import { IPaginaton } from "../../interfaces";
-import { Link, NavLink, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { Link } from "react-router-dom";
 import "./pagination.scss";
 export const Pagination = ({
   countOfPages,
@@ -21,44 +20,45 @@ export const Pagination = ({
   };
   return (
     <div className="navigation">
-      <div className="navigation-list">
-        <Link
-          className="navigation__button"
-          onClick={prevPage}
-          to={
-            currentPage === 1
-              ? `?page=${currentPage}`
-              : `?page=${currentPage - 1}`
-          }
-        >
-          Prev
-        </Link>
-
-        {pageNumbers.map((pageNum) => (
+      <div className="container">
+        <div className="navigation-list">
           <Link
-            to={`?page=${pageNum}`}
-            key={pageNum}
-            onClick={() => setCurrentPage(pageNum)}
-            className={
-              pageNum === currentPage
-                ? "navigation__button navigation__button--active"
-                : "navigation__button"
+            className="navigation__button"
+            onClick={prevPage}
+            to={
+              currentPage === 1
+                ? `?page=${currentPage}`
+                : `?page=${currentPage - 1}`
             }
           >
-            {pageNum}
+            Prev
           </Link>
-        ))}
-        <Link
-          className="navigation__button"
-          to={
-            currentPage === countOfPages
-              ? `?page=${currentPage}`
-              : `?page=${currentPage + 1}`
-          }
-          onClick={nextPage}
-        >
-          Next
-        </Link>
+          {pageNumbers.map((pageNum) => (
+            <Link
+              to={`?page=${pageNum}`}
+              key={pageNum}
+              onClick={() => setCurrentPage(pageNum)}
+              className={
+                pageNum === currentPage
+                  ? "navigation__button navigation__button--active"
+                  : "navigation__button"
+              }
+            >
+              {pageNum}
+            </Link>
+          ))}
+          <Link
+            className="navigation__button"
+            to={
+              currentPage === countOfPages
+                ? `?page=${currentPage}`
+                : `?page=${currentPage + 1}`
+            }
+            onClick={nextPage}
+          >
+            Next
+          </Link>
+        </div>
       </div>
     </div>
   );

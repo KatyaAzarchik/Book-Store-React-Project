@@ -7,13 +7,13 @@ import { Pagination } from "../Pagination/Pagination";
 import { useBooks } from "../../hooks/useBooks";
 export const Books = () => {
   const [params] = useSearchParams();
-  // const books = useSelector(booksSelector);
-  const limitPerPage = 6;
-  const [currentPage, setCurrentPage] = useState(1);
-  const currentOffset = currentPage > 1 ? (currentPage - 1) * limitPerPage : 0;
-  // const books = useBooks(limitPerPage, currentOffset);
-  const { books, count } = useBooks(limitPerPage, currentOffset);
-  const countOfPages = Math.ceil(count / limitPerPage);
+  const query = 40;
+  const [currentPage, setCurrentPage] = useState(
+    Number(params.get("page")) || 1
+  );
+  const page = currentPage;
+  const { books, total } = useBooks(query, page);
+  const countOfPages = Math.ceil(total / query);
 
   return (
     <>

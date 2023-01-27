@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { act } from "react-dom/test-utils";
 import { IBook, IInitialApiState } from "../interfaces";
-import { getBooks, IBooksResponse } from "./booksThunk";
+import { getBooks, IBooksResponse } from "./paginationThunk";
 import { getBook } from "./bookThunk";
 
 const initialState: IInitialApiState = {
@@ -10,7 +10,7 @@ const initialState: IInitialApiState = {
   book: undefined,
   error: null,
   favorites: [],
-  count: 0,
+  total: 0,
 };
 
 export const booksSlice = createSlice({
@@ -26,35 +26,34 @@ export const booksSlice = createSlice({
       );
     },
   },
-  extraReducers: {
-    [getBooks.pending.type]: (state) => {
+  extraReducers(builder) {
+    builder.addCase(getBooks.pending, (state) => {
       state.loading = true;
-    },
-    [getBooks.fulfilled.type]: (
-      state,
-      action: PayloadAction<IBooksResponse | any>
-    ) => {
-      state.loading = false;
-      state.books = action.payload;
-      state.count = action.payload.count;
-      console.log(`action.payload.results`);
-      console.log(action.payload);
-    },
-    [getBooks.rejected.type]: (state, action: any) => {
+    });
+    builder.addCase(
+      getBooks.fulfilled,
+      (state, action: PayloadAction<IBooksResponse | any>) => {
+        state.loading = false;
+        state.books = action.payload.books;
+        state.total = action.payload.total;
+      }
+    );
+    builder.addCase(getBooks.rejected, (state, action: any) => {
       state.loading = false;
       state.error = action.payload;
-    },
-    [getBook.pending.type]: (state) => {
+    });
+    builder.addCase(getBook.pending, (state) => {
       state.loading = true;
-    },
-    [getBook.fulfilled.type]: (state, action) => {
+    });
+
+    builder.addCase(getBook.fulfilled, (state, action) => {
       state.loading = false;
       state.book = action.payload;
-    },
-    [getBook.rejected.type]: (state, action: any) => {
+    });
+    builder.addCase(getBook.rejected, (state, action: any) => {
       state.loading = false;
       state.error = action.payload;
-    },
+    });
   },
 });
 export const { addBookToFavorites, removeBookToFavorites } = booksSlice.actions;

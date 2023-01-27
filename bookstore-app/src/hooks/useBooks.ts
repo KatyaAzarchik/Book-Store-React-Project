@@ -1,32 +1,17 @@
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
-import { getBooks } from "../store/booksThunk";
-import { booksCountSelector, booksSelector } from "../store/selectors";
+import { getBooks } from "../store/paginationThunk";
 import { useAppDispatch, useAppSelector } from "../store/store";
 
-export const useBooks = (limit: number, offset: number) => {
-  const { books, count } = useAppSelector((state) => state.booksReducer);
+export const useBooks = (query: number, page: number) => {
+  const { books, total } = useAppSelector((state) => state.booksReducer);
 
   const dispatch = useAppDispatch();
   useEffect(() => {
-    dispatch(getBooks(`limit=${limit}&offset=${offset}`));
-  }, [dispatch]);
-  console.log(books);
+    dispatch(getBooks(`query=${query}&page=${page}`));
+  }, [dispatch, query, page]);
+
   return {
     books,
-    count,
+    total,
   };
 };
-
-// export const useBooks = () => {
-//   const books = useAppSelector(booksSelector);
-//   const limitPerPage = 10;
-//   const dispatch = useAppDispatch();
-//   useEffect(() => {
-//     dispatch(getBooks());
-//   }, [dispatch]);
-
-//   return {
-//     books,
-//   };
-// };
