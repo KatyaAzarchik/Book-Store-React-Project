@@ -1,17 +1,17 @@
 import { IBooks } from "../../../interfaces";
 import "./bookCard.scss";
 
-export const BookCard = (book: IBooks) => {
+export const BookCard = (props: IBooks) => {
   return (
     <>
       <div className="book-image">
-        <img src={book.image} alt="#" />
+        <img src={props.image} alt="#" />
       </div>
       <div className="text-wrapp">
-        <div className="book-tittle">{book.title}</div>
-        <div className="book-subtitle">{book.subtitle}</div>
+        <div className="book-tittle">{props.title}</div>
+        <div className="book-subtitle">{props.subtitle}</div>
         <div className="price-rate-wrapp">
-          <div>{book.price}</div>
+          <div>{props.price}</div>
         </div>
       </div>
     </>

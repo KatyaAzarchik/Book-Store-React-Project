@@ -1,0 +1,67 @@
+.cart-page {
+  min-height: 100vh;
+}
+.cart-page-title {
+  margin-bottom: 48px;
+  font-size: 3.5rem;
+}
+.cart-wrapp-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 97px;
+  border-bottom: 1px solid rgba(231, 231, 231, 1);
+}
+.cart-wrapp-item-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+  color: rgba(49, 48, 55, 1);
+}
+.cart-wrapp-item-img {
+  background-color: rgba(215, 228, 253, 1);
+  margin-right: 32px;
+  max-width: 256px;
+  img {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    overflow: hidden;
+    object-fit: contain;
+  }
+}
+.cart-item-content {
+  display: flex;
+  flex-direction: column;
+}
+.cart-item-title {
+  margin-bottom: 8px;
+  width: 446px;
+  font-size: 1.5rem;
+}
+.cart-item-authors {
+  margin-bottom: 24px;
+  font-size: 1rem;
+  font-family: "Helios";
+  color: rgba(168, 168, 168, 1);
+}
+.cart-item-price {
+  font-size: 2.5rem;
+  color: rgba(49, 48, 55, 1);
+}
+.cart-delete-book {
+  border: none;
+  background-color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-left: 15px;
+}
+.cart-total-wrapp {
+  text-align: right;
+}
+.cart-sum-total {
+  text-align: right;
+  font-size: 2.5rem;
+}

@@ -1,0 +1,27 @@
+.favorite-icon-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 46px;
+  text-align: right;
+  background-color: rgba(49, 48, 55, 1);
+  padding: 15px;
+  transition-duration: 0.2s;
+  cursor: pointer;
+}
+.favorite-icon {
+  font-size: 1.125rem;
+  color: #fff;
+  transition-duration: 0.2s;
+  :hover {
+    color: rgba(252, 98, 78, 0.912);
+    transition-duration: 0.2s;
+  }
+}
+.favorite-icon-fav {
+  font-size: 1.125rem;
+  color: rgba(252, 98, 78, 0.912);
+}
+.favorite-icon {
+  color: white;
+}

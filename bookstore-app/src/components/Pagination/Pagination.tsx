@@ -1,11 +1,17 @@
-import { IPaginaton } from "../../interfaces";
 import { Link } from "react-router-dom";
 import "./pagination.scss";
+
+type Paginaton = {
+  countOfPages: number;
+  currentPage: number;
+  setCurrentPage: (pageNumber: number) => void;
+};
+
 export const Pagination = ({
   countOfPages,
   currentPage,
   setCurrentPage,
-}: IPaginaton) => {
+}: Paginaton) => {
   const pageNumbers = Array.from(
     { length: countOfPages },
     (__, index) => index + 1
@@ -23,7 +29,7 @@ export const Pagination = ({
       <div className="container">
         <div className="navigation-list">
           <Link
-            className="navigation__button"
+            className="navigation-button"
             onClick={prevPage}
             to={
               currentPage === 1
@@ -40,15 +46,15 @@ export const Pagination = ({
               onClick={() => setCurrentPage(pageNum)}
               className={
                 pageNum === currentPage
-                  ? "navigation__button navigation__button--active"
-                  : "navigation__button"
+                  ? "navigation-button navigation-button--active"
+                  : "navigation-button"
               }
             >
               {pageNum}
             </Link>
           ))}
           <Link
-            className="navigation__button"
+            className="navigation-button"
             to={
               currentPage === countOfPages
                 ? `?page=${currentPage}`

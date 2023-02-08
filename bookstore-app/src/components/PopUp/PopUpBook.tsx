@@ -1,6 +1,12 @@
-import { IModal } from "../../interfaces";
 import "./popUp.scss";
-export const PopUpBook = (props: IModal) => {
+
+type PopUpBook = {
+  modalImg: string;
+  active: boolean;
+  setModalActive: boolean | any;
+};
+
+export const PopUpBook = (props: PopUpBook) => {
   return (
     <div
       className={props.active ? "modal active" : "modal"}

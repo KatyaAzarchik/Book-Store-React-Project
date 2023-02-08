@@ -1,0 +1,85 @@
+.book-page-wrapp {
+  display: flex;
+  justify-content: space-between;
+  margin: 48px -15px 72px -15px;
+  z-index: 25;
+}
+.book-page-img {
+  position: relative;
+  width: 448px;
+  height: 472px;
+  background-color: rgba(244, 238, 253, 1);
+  margin: 0 15px;
+  overflow: hidden;
+  object-fit: cover;
+
+  img {
+    // position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    overflow: hidden;
+    object-fit: contain;
+  }
+}
+.book-page-btn-added {
+  width: 100%;
+  padding: 12px 0;
+  border: none;
+  background-color: rgba(168, 168, 168, 1);
+  font-size: 1.5rem;
+  color: rgba(49, 48, 55, 1);
+  cursor: pointer;
+}
+.book-previewe {
+  font-size: 1rem;
+  text-align: center;
+  font-family: "Helios";
+  cursor: pointer;
+}
+.book-wrapp {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0 20px 0;
+}
+.book-page-info-title {
+  font-family: "Helios";
+  font-size: 1rem;
+  font-weight: 400;
+  color: rgba(168, 168, 168, 1);
+  margin: 0 15px 0 0;
+}
+.book-page-info-name {
+  font-family: "Helios";
+  font-size: 1rem;
+  color: rgba(49, 48, 55, 1);
+  margin: 0 0 0 15px;
+}
+.book-page-btn-wrapp {
+  padding: 50px 0 40px 0;
+}
+.book-page-btn {
+  width: 100%;
+  padding: 12px 0;
+  border: none;
+  background-color: rgba(49, 48, 55, 1);
+  font-size: 1.5rem;
+  color: #fff;
+  cursor: pointer;
+}
+.book-page-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 448px;
+  margin: 0 15px;
+}
+.book-price {
+  font-size: 2.5rem;
+  padding: 40px 0 24px 0;
+}
+.book-price-wrapp {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

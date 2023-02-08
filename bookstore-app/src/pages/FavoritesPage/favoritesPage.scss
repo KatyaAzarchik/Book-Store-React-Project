@@ -1,3 +1,6 @@
+.favorites-page {
+  min-height: 100vh;
+}
 .favorites-page-title {
   margin-bottom: 48px;
   font-size: 3.5rem;
@@ -7,6 +10,13 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 97px;
+}
+.favorites-wrapp-item-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 97px;
+  color: rgba(49, 48, 55, 1);
 }
 .favorites-wrapp-item-img {
   background-color: rgba(215, 228, 253, 1);
@@ -45,4 +55,9 @@
   font-size: 1.5rem;
   color: #fc857f;
   cursor: pointer;
+}
+.favorites-item-price-wrapp {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

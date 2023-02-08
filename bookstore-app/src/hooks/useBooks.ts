@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import { getBooks } from "../store/paginationThunk";
+import { ChangeEvent, useEffect } from "react";
+import { getBooks } from "../features/paginationThunk";
 import { useAppDispatch, useAppSelector } from "../store/store";
 
 export const useBooks = (query: number, page: number) => {
@@ -10,8 +10,13 @@ export const useBooks = (query: number, page: number) => {
     dispatch(getBooks(`query=${query}&page=${page}`));
   }, [dispatch, query, page]);
 
+  const handleSubmitSearch = (e: ChangeEvent<HTMLInputElement>) => {
+    dispatch(getBooks(`${e.target.value}&query=${query}`));
+    e.preventDefault();
+  };
   return {
     books,
     total,
+    handleSubmitSearch,
   };
 };

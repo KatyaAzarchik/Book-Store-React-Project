@@ -1,5 +1,5 @@
-// export const URL = "https://63c2d2938bb1ca347558d0c3.mockapi.io/bookStore";
 export const URL = "https://api.itbook.store/1.0/";
+export const booksApiUrl = "https://api.itbook.store/1.0/search/";
 
 export const menuLinks = [
   { id: 0, linkName: "favorite", link: "/favorite" },

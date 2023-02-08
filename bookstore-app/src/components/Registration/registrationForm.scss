@@ -1,0 +1,38 @@
+.registrate-form {
+  width: 544px;
+  margin: auto;
+  text-align: center;
+  padding: 32px 32px 40px 32px;
+  border: 1px solid rgba(231, 231, 231, 1);
+}
+.registrate-input-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+.registrate-input-title {
+  text-align: left;
+  font-family: "Helios";
+  font-size: 1rem;
+  font-weight: 700;
+  color: rgba(49, 48, 55, 1);
+  margin-bottom: 10px;
+}
+.registrate-input {
+  padding: 15px 15px;
+  border: 1px solid rgba(231, 231, 231, 1);
+  font-size: 1rem;
+  font-family: "Helios";
+}
+.registrate-btn {
+  width: 100%;
+  background-color: rgba(49, 48, 55, 1);
+  color: rgba(255, 255, 255, 1);
+  padding: 12px 0;
+  font-size: 1.5rem;
+  font-family: "Bebas Neue";
+  cursor: pointer;
+}

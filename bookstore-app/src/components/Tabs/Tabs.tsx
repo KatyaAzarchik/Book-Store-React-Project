@@ -1,10 +1,12 @@
-import React, { ReactElement, useState } from "react";
-import "./tab.scss";
+import { ReactElement, useState } from "react";
 import { TabTitle, Props as TabTitleProps } from "./TabTitle";
+import "./tab.scss";
 
 interface ITabProps {
   children: ReactElement<TabTitleProps>[];
   preSelectedTabIndex?: number;
+  tabsClassName: string;
+  tabsListClassName: string;
 }
 
 export const Tabs = (props: ITabProps) => {
@@ -16,8 +18,8 @@ export const Tabs = (props: ITabProps) => {
     setPreselectedTabIndex(index);
 
   return (
-    <div className="tabs">
-      <ul className="tabs__list">
+    <div className={props.tabsClassName}>
+      <ul className={props.tabsListClassName}>
         {props.children.map((item, index) => (
           <TabTitle
             key={item.props.title}

@@ -1,5 +1,8 @@
-import { ILogo } from "../../../interfaces";
 import "./logo.scss";
-export const Logo = ({ logo }: ILogo) => {
-  return <div className="logo">{logo}</div>;
+
+type ILogo = {
+  logo: string;
+};
+export const Logo = (props: ILogo) => {
+  return <div className="logo">{props.logo}</div>;
 };

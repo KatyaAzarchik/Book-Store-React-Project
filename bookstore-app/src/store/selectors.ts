@@ -5,4 +5,5 @@ export const booksCountSelector = (state: RootState) =>
   state.booksReducer.total;
 export const bookSelector = (state: RootState) => state.booksReducer.book;
 export const booksFavovitesSelector = (state: RootState) =>
-  state.booksReducer.favorites;
+  state.favoritesReducer.favorites;
+export const booksCartSelector = (state: RootState) => state.cartReducer.cart;

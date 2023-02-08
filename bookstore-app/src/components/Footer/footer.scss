@@ -1,0 +1,15 @@
+.footer {
+}
+.footer-wrapp {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border-top: 1px solid rgba(231, 231, 231, 1);
+  padding-top: 35px;
+  margin-bottom: 35px;
+}
+.footer-content {
+  font-size: 1rem;
+  color: rgba(168, 168, 168, 1);
+  font-family: "Helios";
+}

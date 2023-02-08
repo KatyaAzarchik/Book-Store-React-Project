@@ -1,19 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
-import { getBook } from "../../store/bookThunk";
+import { useParams } from "react-router-dom";
+import { getBook } from "../../features/bookThunk";
 import { bookSelector } from "../../store/selectors";
 import { useAppDispatch } from "../../store/store";
-import { useParams } from "react-router-dom";
-import { createBrowserHistory } from "history";
 import { BookTitle } from "../../components/Books/BookTitle";
-import "./bookPage.scss";
 import { Book } from "../../components/Books/Book/Book";
 import { Tabs } from "../../components/Tabs/Tabs";
 import { Tab } from "../../components/Tabs/Tab";
-
-const history = createBrowserHistory();
+import { BackArrow } from "../../components/BackArrow/BackArrow";
+import "./bookPage.scss";
 
 export const Bookpage = () => {
   const book = useSelector(bookSelector);
@@ -24,18 +20,11 @@ export const Bookpage = () => {
     dispatch(getBook(Number(isbn13)));
   }, []);
 
-  console.log(book);
-
-  const handleGoBack = () => history.back();
-
   return (
     <div className="book-page" id={`${book?.isbn13}`}>
       <div className="container">
-        <button className="arrow-btn" onClick={handleGoBack}>
-          <FontAwesomeIcon className="arrow-icon" icon={faArrowLeftLong} />
-        </button>
+        <BackArrow />
         <BookTitle title={`${book?.title}`} />
-
         <Book
           authors={`${book?.authors}`}
           desc={`${book?.desc}`}
@@ -49,7 +38,7 @@ export const Bookpage = () => {
           image={`${book?.image}`}
           isbn13={Number(book?.isbn13)}
         />
-        <Tabs>
+        <Tabs tabsClassName="tabs" tabsListClassName="tabs__list">
           <Tab title={"Description"}>
             <div>{`${book?.desc}`}</div>
           </Tab>

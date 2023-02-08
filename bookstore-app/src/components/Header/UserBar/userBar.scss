@@ -3,8 +3,28 @@
   justify-content: space-between;
   width: 184px;
 }
-.user-bar-icon {
+.user-bar-icon-empty {
+  position: relative;
+  z-index: 10;
   font-size: 1.5rem;
   cursor: pointer;
   color: rgba(49, 48, 55, 1);
+}
+.user-bar-icon {
+  position: relative;
+  z-index: 10;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: rgba(49, 48, 55, 1);
+  &::before {
+    content: "";
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(252, 133, 127, 1);
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
 }
