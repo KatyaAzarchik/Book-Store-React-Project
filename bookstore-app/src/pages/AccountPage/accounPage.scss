@@ -1,0 +1,80 @@
+.accountPage-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 48px;
+}
+.profile-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.password-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.profile-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+  &:last-child {
+    margin-bottom: 72px;
+  }
+}
+.profile-input-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  &:nth-child(1) {
+    margin-right: 32px;
+  }
+}
+.profile-input {
+  width: 544px;
+  padding: 14px 20px;
+  border: 1px solid rgba(231, 231, 231, 1);
+  font-size: 1rem;
+  font-family: "Helios";
+  font-weight: 400;
+  margin-bottom: 16px;
+}
+.profile-input-lable {
+  margin-bottom: 5px;
+  font-size: 1rem;
+  font-family: "Helios";
+  font-weight: 700;
+}
+.profile-buttons {
+  border-top: 1px solid rgba(231, 231, 231, 1);
+  padding: 48px;
+  margin: 0 0 72px 0;
+  text-align: right;
+}
+.save-btn {
+  width: 255px;
+  margin-right: 32px;
+  padding: 13px 40px;
+  font-size: 1.5rem;
+  text-align: center;
+  font-family: "Bebas Neue";
+  cursor: pointer;
+  border: none;
+  background-color: rgba(49, 48, 55, 1);
+  color: #fff;
+}
+.cancel-btn {
+  width: 255px;
+  padding: 13px 40px;
+  font-size: 1.5rem;
+  text-align: center;
+  font-family: "Bebas Neue";
+  cursor: pointer;
+  border: 1px solid rgba(231, 231, 231, 1);
+  background-color: #fff;
+  color: rgba(49, 48, 55, 1);
+}

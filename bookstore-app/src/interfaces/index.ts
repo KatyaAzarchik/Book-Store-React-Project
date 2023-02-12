@@ -33,10 +33,16 @@ export interface IInitialBookState {
   books: IBooks[];
   error: null | string;
   total: number;
+  page: number;
+  query: string;
 }
 export interface IInitialFavoritesState {
   favorites: IBook[];
 }
 export interface ICartBookQuantity {
   bookQuantity: number;
+}
+export interface SearchParams {
+  query: string;
+  page: number;
 }

@@ -9,16 +9,14 @@ export type Props = {
 
 export const TabTitle = (props: Props): JSX.Element => {
   const { title, setSelectedTab, index, isActive } = props;
-
+  console.log(index);
   const handleOnClick = () => {
     setSelectedTab(index);
   };
-
+  console.log(index);
   return (
-    <li className={`title ${isActive ? "active" : ""}`}>
-      <div className="title__content" onClick={handleOnClick}>
-        {title}
-      </div>
+    <li onClick={handleOnClick} className={`title ${isActive ? "active" : ""}`}>
+      <div className="title__content">{title}</div>
     </li>
   );
 };

@@ -4,6 +4,7 @@
 .navigation-list {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   margin-top: 48px;
   margin-bottom: 71px;
 }

@@ -10,25 +10,23 @@ export const cartSlice = createSlice({
   initialState: initialState,
   reducers: {
     addBookToCart(state: IInitialCartState, action: PayloadAction<any>) {
-      // state.cart = [...state.cart, action.payload];
-      state.cart.push({
-        bookCount: 1,
-        ...action.payload,
-      });
+      state.cart = [...state.cart, { bookCount: 1, ...action.payload }];
     },
 
     increaseBookInCart(state: IInitialCartState, action: PayloadAction<any>) {
       state.cart = state.cart.map((item) => {
+        const count = Number(item.bookCount);
         return item.isbn13 === action.payload
-          ? { ...item, bookCount: Number(item.bookCount) + 1 }
-          : { ...item, bookCount: Number(item.bookCount) };
+          ? { ...item, bookCount: count + 1 }
+          : { ...item, bookCount: count };
       });
     },
     decreaseBookInCart(state: IInitialCartState, action: PayloadAction<any>) {
       state.cart = state.cart.map((item) => {
-        return item.isbn13 === action.payload && Number(item.bookCount) > 1
-          ? { ...item, bookCount: Number(item.bookCount) - 1 }
-          : { ...item, bookCount: Number(item.bookCount) };
+        const count = Number(item.bookCount);
+        return item.isbn13 === action.payload && count > 1
+          ? { ...item, bookCount: count - 1 }
+          : { ...item, bookCount: count };
       });
     },
     removeBookFromCart(state: IInitialCartState, action: PayloadAction<any>) {

@@ -1,13 +1,14 @@
 import { FormEvent, useState } from "react";
-import { BooksListPage } from "../../../pages/BooksListPage/BooksListPage";
 import { SignInForm } from "./SignInForm";
 import "../registrationForm.scss";
+import { useLogInUser } from "../../../hooks/useRegisterUser";
 
 export const SignIn = () => {
+  const { handleUseLogInUser } = useLogInUser();
+
   // const dispatch = useAppDispatch();
   const [login, setlogin] = useState("");
   const [password, setPassword] = useState("");
-
   const [flag, setFlag] = useState(false);
   const [home, setHome] = useState(true);
 
@@ -23,12 +24,18 @@ export const SignIn = () => {
     } else {
       setHome(!home);
       setFlag(false);
+      handleUseLogInUser();
     }
     // dispatch(loginUser({ login, password }));
   };
 
   return home ? (
     <div>
+      {flag && (
+        <div style={{ color: "red", textAlign: "center" }}>
+          Incorrect login or password.
+        </div>
+      )}
       <SignInForm
         handleSubmitForm={handleSubmit}
         login={login}
@@ -38,6 +45,8 @@ export const SignIn = () => {
       />
     </div>
   ) : (
-    <BooksListPage />
+    <div style={{ height: "100vh", textAlign: "center", fontSize: "2rem" }}>
+      Welcome!
+    </div>
   );
 };

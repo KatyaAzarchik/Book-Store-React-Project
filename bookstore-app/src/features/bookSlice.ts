@@ -9,12 +9,18 @@ const initialState: IInitialBookState = {
   book: undefined,
   error: null,
   total: 0,
+  page: 1,
+  query: "",
 };
 
 export const booksSlice = createSlice({
   name: "books",
   initialState: initialState,
-  reducers: {},
+  reducers: {
+    setPage(state, action: PayloadAction<number>) {
+      state.page = action.payload;
+    },
+  },
   extraReducers(builder) {
     builder.addCase(getBooks.pending, (state) => {
       state.loading = true;

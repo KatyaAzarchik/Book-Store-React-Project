@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { Logo } from "./Logo/Logo";
-import { SearchForm } from "./SearchForm/SearchForm";
 import { UserBar } from "./UserBar/UserBar";
 import "./header.scss";
 
@@ -12,7 +11,6 @@ export const Header = () => {
           <Link to={"/"}>
             <Logo logo={"BOOKSTORE"} />
           </Link>
-          <SearchForm />
           <UserBar />
         </div>
       </div>

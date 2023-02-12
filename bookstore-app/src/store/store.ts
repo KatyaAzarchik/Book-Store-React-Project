@@ -5,12 +5,14 @@ import booksReducer from "../features/bookSlice";
 import favoritesReducer from "../features/favoriteSlice";
 import cartReducer from "../features/cartSlice";
 import authReducer from "./auth/authReducer";
+import registrationReducer from "../features/registrationSlice";
 
 const rootReducer = combineReducers({
   booksReducer,
   favoritesReducer,
   cartReducer,
   authReducer,
+  registrationReducer,
 });
 export const store = configureStore({
   reducer: rootReducer,

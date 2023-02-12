@@ -5,9 +5,11 @@ import { Bookpage } from "./pages/BookPage/BookPage";
 import { FavoritesPage } from "./pages/FavoritesPage/FavoritesPage";
 import { Footer } from "./components/Footer/Footer";
 import { CartPage } from "./pages/CartPage/CartPage";
-import { SignInPage } from "./pages/SignInPage/SignInPage";
+import { SignUpPage } from "./pages/RegistrationPage/SignUpPage";
 import { AccountPage } from "./pages/AccountPage/AccountPage";
 import "./App.scss";
+import { SignIn } from "./components/Registration/SignIn/SignIn";
+import { SignInPage } from "./pages/RegistrationPage/SignInPage";
 
 function App() {
   return (
@@ -26,8 +28,10 @@ function App() {
             path={`cart`}
             element={<CartPage cartTitle={"Your Cart"} />}
           ></Route>
-          <Route path={`signIn`} element={<SignInPage />}></Route>
+          {/* <Route path={`signIn`} element={<SignInPage />}></Route> */}
+          <Route path={`signIn`} element={<SignUpPage />}></Route>
           <Route path={`account`} element={<AccountPage />}></Route>
+          <Route path={`signIn/success`} element={<SignIn />}></Route>
         </Routes>
       </BrowserRouter>
       <Footer />
